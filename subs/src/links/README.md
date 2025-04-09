@@ -1,3 +1,10 @@
+# subscription 这个项目中
+必须关联的三个模块
+cart 购物车
+customer 顾客
+order 订单
+基本认为以上必不可少
+
 # Module Links
 
 A module link forms an association between two data models of different modules, while maintaining module isolation.
