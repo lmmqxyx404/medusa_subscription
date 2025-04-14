@@ -20,14 +20,18 @@ import {
   ProductStatus,
 } from "@medusajs/framework/utils";
 
+// 创建mock数据
 export default async function seedDemoData({ container }: ExecArgs) {
+  // 通过 container.resolve 方法获取了日志记录器 (logger)、链接服务 (link)、查询服务 (query) 以及用于处理订单履约、销售渠道和商店信息的模块服务。
+  // 这种设计使得代码易于测试和扩展。
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const link = container.resolve(ContainerRegistrationKeys.LINK);
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
   const fulfillmentModuleService = container.resolve(Modules.FULFILLMENT);
   const salesChannelModuleService = container.resolve(Modules.SALES_CHANNEL);
   const storeModuleService = container.resolve(Modules.STORE);
-
+  
+  // 定义了一个国家代码的数组，这里列出了欧洲地区常见的一些国家，用于后续区域、税务区域以及地理相关配置的数据填充。
   const countries = ["gb", "de", "dk", "se", "fr", "es", "it"];
 
   logger.info("Seeding store data...");
